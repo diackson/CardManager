@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+
+		<h4>New Credit Card</h4>
+
+		<h:messages styleClass="alert alert-error" />
+
+		<h:form class="form-horizontal">
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputCardType"
+					value="Card Type" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText
+						value="#{cardManagementController.managedCard.cardType}"
+						id="inputCardType" placeholder="CardType" />
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputCardNumber"
+					value="Card Number" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText
+						value="#{cardManagementController.managedCard.ccNumber}"
+						id="inputCardNumber" placeholder="CardNumber" />
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputExpiryDate"
+					value="Expiry Date" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText
+						value="#{cardManagementController.managedCard.expiryDate}"
+						id="inputExpiryDate" placeholder="ExpiryDate" />
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputCrypto"
+					value="Crypto" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText value="#{cardManagementController.managedCard.crypto}"
+						id="inputCrypto" placeholder="Crypto" />
+				</h:panelGroup>
+			</h:panelGroup>
+<!-- 			<h:panelGroup layout="block" styleClass="control-group"> -->
+<!-- 				<h:outputLabel class="control-label" for="inputClientName" -->
+<!-- 					value="Name" /> -->
+<!-- 				<h:panelGroup layout="block" styleClass="controls"> -->
+<!-- 					<h:inputText -->
+<!-- 						value="#{cardManagementController}" -->
+<!-- 						id="inputClientName" placeholder="Name" /> -->
+<!-- 				</h:panelGroup> -->
+<!-- 			</h:panelGroup> -->
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputPlafond"
+					value="Plafond" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText
+						value="#{cardManagementController.managedCard.plafond}"
+						id="inputPlafond" placeholder="Plafond" />
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputMinSolde"
+					value="Solde Minimum" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText
+						value="#{cardManagementController.managedCard.minSolde}"
+						id="inputMinSolde" placeholder="MinSolde" />
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:commandButton class="btn" value="Add Card"
+						action="#{cardManagementController.doNewCard}" />
+					<h:commandButton class="btn" value="Cancel" action="cardmanagement" />
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

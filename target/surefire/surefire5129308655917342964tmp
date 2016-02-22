@@ -1,0 +1,5 @@
+#surefire
+#Mon Feb 22 22:04:59 CET 2016
+user.dir=/home/diackson/Documents/cardmanager
+localRepository=/home/diackson/.m2/repository
+basedir=/home/diackson/Documents/cardmanager

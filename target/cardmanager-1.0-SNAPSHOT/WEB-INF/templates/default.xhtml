@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Portefeuille Management</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+
+	<!-- Le styles -->
+	<h:outputStylesheet name="css/bootstrap.min.css" />
+
+	<style type="text/css">
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+
+.sidebar-nav {
+	yy padding: 9px 0;
+}
+</style>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+	<!-- Le fav and touch icons
+        <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+        -->
+
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGroup layout="block"
+			styleClass="navbar navbar-inverse navbar-fixed-top">
+			<h:panelGroup layout="block" styleClass="navbar-inner">
+				<h:panelGroup layout="block" styleClass="container">
+					<a class="brand" href="/index.jsf">Portefeuille Management</a>
+
+					<ul class="nav">
+						<ui:fragment rendered="#{sessionInfo.user.role == 'ADMIN'}">
+							<li><h:outputLink value="/usermanagement.jsf">Gestion des Utilisateurs</h:outputLink></li>
+							<li><h:outputLink value="/cardmanagement.jsf">Card Management</h:outputLink></li>
+<!-- 							<li><h:outputLink value="/cartemanagement.jsf">Gestion de la Carte</h:outputLink></li> -->
+						</ui:fragment>
+						<ui:fragment
+							rendered="#{sessionInfo.user.role == 'CLIENT' or sessionInfo.user.role == 'ADMIN'}">
+							<!-- 							<li><h:outputLink value="/tablemanagement.jsf">Gestion des Tables</h:outputLink></li> -->
+						</ui:fragment>
+						<ui:fragment rendered="#{sessionInfo.user.role == 'CLIENT'}">
+							<li><h:outputLink value="/cardmanagement.jsf">Card Management</h:outputLink></li>
+							<li><h:outputLink value="/addTransaction.jsf">Transaction Management</h:outputLink></li>
+							<!-- 	<li><h:outputLink value="/tableClimanagement.jsf">Gestion Clients</h:outputLink></li> -->
+<!-- 							<li><h:outputLink value="/Commandemanagement.jsf">Gestion Commandes</h:outputLink></li> -->
+
+
+						</ui:fragment>
+						<ui:fragment rendered="#{!(empty sessionInfo.user)}">
+							<li><h:commandLink action="#{loginController.logout()}"
+									value="Logout" /></li>
+						</ui:fragment>
+					</ul>
+					<p class="navbar-text pull-right">
+						<h:outputText value="Logged in as #{sessionInfo.user.nom}"
+							rendered="#{!(empty sessionInfo.user)}" />
+
+						<h:outputLink value="/login.jsf"
+							rendered="#{empty sessionInfo.user}">Login</h:outputLink>
+					</p>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:form>
+
+
+	<h:panelGroup layout="block" styleClass="container">
+
+		<ui:insert name="content">
+                [Template content will be inserted here]
+            </ui:insert>
+		<hr />
+
+		<footer>
+		<p>&copy;-Diakhite Muhammad Fevier 2016</p>
+		</footer>
+
+	</h:panelGroup>
+
+	<!-- Le javascript
+        ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<h:outputScript name="js/jquery-1.8.3.min.js" />
+	<h:outputScript name="js/bootstrap.min.js" />
+</h:body>
+</html>

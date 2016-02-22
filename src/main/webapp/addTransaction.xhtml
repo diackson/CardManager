@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+
+		<h4>Make a transaction
+			${TransactionManagementController.managedTransaction}</h4>
+
+		<h:messages styleClass="alert alert-error" />
+		<h:form class="form-horizontal">
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="InputAmount"
+					value="Amount" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:inputText
+						value="#{TransactionManagementController.managedTransaction.amount}"
+						id="InputAmount" placeholder="Amount" />
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:outputLabel class="control-label" for="inputCardNumber"
+					value="Card Number" />
+				<h:panelGroup layout="block" styleClass="controls">
+					<!-- 					<h:inputText -->
+					<!-- 						value="#{TransactionManagementController.managedTransaction.ccNumber}" -->
+					<!-- 						id="inputCardNumber" placeholder="CardNumber" /> -->
+					<h:selectOneMenu value="#{TransactionManagementController.managedTransaction.ccNumber}">
+						<f:selectItems value="#{cardManagementController.getAllCard()}" />
+					</h:selectOneMenu>
+				</h:panelGroup>
+			</h:panelGroup>
+<!-- 			<h:panelGroup layout="block" styleClass="control-group"> -->
+<!-- 				<h:outputLabel class="control-label" for="inputName" -->
+<!-- 					value="Card Owner" /> -->
+<!-- 				<h:panelGroup layout="block" styleClass="controls"> -->
+<!-- 					<h:inputText -->
+<!-- 						value="#{TransactionManagementController.managedTransaction.user}" -->
+<!-- 						id="inputName" placeholder="Card Owner" /> -->
+<!-- 				</h:panelGroup> -->
+<!-- 			</h:panelGroup> -->
+<!-- 			<h:panelGroup layout="block" styleClass="control-group"> -->
+<!-- 				<h:outputLabel class="control-label" for="inputDate" -->
+<!-- 					value="Transaction Date" /> -->
+<!-- 				<h:panelGroup layout="block" styleClass="controls"> -->
+<!-- 					<h:inputText -->
+<!-- 						value="#{TransactionManagementController.managedTransaction.transactionDate}" -->
+<!-- 						id="inputDate" placeholder="Transaction Date" /> -->
+<!-- 				</h:panelGroup> -->
+<!-- 			</h:panelGroup> -->
+
+
+			<h:panelGroup layout="block" styleClass="control-group">
+				<h:panelGroup layout="block" styleClass="controls">
+					<h:commandButton class="btn" value="Add Card"
+						action="#{TransactionManagementController}" />
+					<h:commandButton class="btn" value="Cancel"
+						action="#{TransactionManagementController}" />
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
