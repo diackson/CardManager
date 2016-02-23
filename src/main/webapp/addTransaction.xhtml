@@ -7,18 +7,17 @@
 
 	<ui:define name="content">
 
-		<h4>Make a transaction
-			${TransactionManagementController.managedTransaction}</h4>
+		<h4>Make a transaction </h4>
 
 		<h:messages styleClass="alert alert-error" />
 		<h:form class="form-horizontal">
 			<h:panelGroup layout="block" styleClass="control-group">
-				<h:outputLabel class="control-label" for="InputAmount"
+				<h:outputLabel class="control-label" for="inputAmount"
 					value="Amount" />
 				<h:panelGroup layout="block" styleClass="controls">
 					<h:inputText
-						value="#{TransactionManagementController.managedTransaction.amount}"
-						id="InputAmount" placeholder="Amount" />
+						value="#{userTransactManagementController.managedTransaction.amount}"
+						id="inputAmount" placeholder="Amount" />
 				</h:panelGroup>
 			</h:panelGroup>
 			<h:panelGroup layout="block" styleClass="control-group">
@@ -28,7 +27,7 @@
 					<!-- 					<h:inputText -->
 					<!-- 						value="#{TransactionManagementController.managedTransaction.ccNumber}" -->
 					<!-- 						id="inputCardNumber" placeholder="CardNumber" /> -->
-					<h:selectOneMenu value="#{TransactionManagementController.managedTransaction.ccNumber}">
+					<h:selectOneMenu value="#{userTransactManagementController.managedTransaction.ccNumber}">
 						<f:selectItems value="#{cardManagementController.getAllCard()}" />
 					</h:selectOneMenu>
 				</h:panelGroup>
@@ -55,10 +54,10 @@
 
 			<h:panelGroup layout="block" styleClass="control-group">
 				<h:panelGroup layout="block" styleClass="controls">
-					<h:commandButton class="btn" value="Add Card"
-						action="#{TransactionManagementController}" />
+					<h:commandButton class="btn" value="Submit"
+						action="#{userTransactManagementController.doNewTransact()}" />
 					<h:commandButton class="btn" value="Cancel"
-						action="#{TransactionManagementController}" />
+						action="addTransaction" />
 				</h:panelGroup>
 			</h:panelGroup>
 		</h:form>

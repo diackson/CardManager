@@ -50,16 +50,15 @@ body {
 						<ui:fragment rendered="#{sessionInfo.user.role == 'ADMIN'}">
 							<li><h:outputLink value="/usermanagement.jsf">Gestion des Utilisateurs</h:outputLink></li>
 							<li><h:outputLink value="/cardmanagement.jsf">Card Management</h:outputLink></li>
-<!-- 							<li><h:outputLink value="/cartemanagement.jsf">Gestion de la Carte</h:outputLink></li> -->
+							<li><h:outputLink value="/transactmanagement.jsf">Transaction Management Log</h:outputLink></li>
+							
 						</ui:fragment>
 						<ui:fragment
 							rendered="#{sessionInfo.user.role == 'CLIENT' or sessionInfo.user.role == 'ADMIN'}">
-							<!-- 							<li><h:outputLink value="/tablemanagement.jsf">Gestion des Tables</h:outputLink></li> -->
 						</ui:fragment>
 						<ui:fragment rendered="#{sessionInfo.user.role == 'CLIENT'}">
 							<li><h:outputLink value="/cardmanagement.jsf">Card Management</h:outputLink></li>
-							<li><h:outputLink value="/addTransaction.jsf">Transaction Management</h:outputLink></li>
-							<!-- 	<li><h:outputLink value="/tableClimanagement.jsf">Gestion Clients</h:outputLink></li> -->
+							<li><h:outputLink value="/transactmanagement.jsf">Transaction Management</h:outputLink></li>
 <!-- 							<li><h:outputLink value="/Commandemanagement.jsf">Gestion Commandes</h:outputLink></li> -->
 
 

@@ -18,9 +18,10 @@ public class UserTransact implements Serializable{
 	@Id
 	@GeneratedValue
 	private Long transactId;
+	
 	private double amount;
 	private Date transactionDate;
-	private String creditcard;
+	private String TransactStatut;
 	private String User ;
 	private String ccNumber;
 	
@@ -44,27 +45,25 @@ public class UserTransact implements Serializable{
 	public void setTransactionDate(Date transactionDate) {
 		this.transactionDate = transactionDate;
 	}
-	public String getCreditcard(CreditCard cc) {
+
+	public String getUser() {
 		
-		creditcard = Long.toString(cc.getCcNumber());
-		return creditcard;
-	}
-	public void setCreditcard(String creditcard) {
-		this.creditcard = creditcard;
-	}
-	public String getUser(SessionInfo ssInf) {
-		User = ssInf.getUser().getNom();
 		return User;
 	}
 	public void setUser(String user) {
 		User = user;
 	}
-	public String getCcNumber(CreditCard cc) {
-		ccNumber = Long.toString(cc.getCcNumber());
+	public String getCcNumber() {		
 		return ccNumber;
 	}
 	public void setCcNumber(String ccNumber) {
 		this.ccNumber = ccNumber;
+	}
+	public String getTransactStatut() {
+		return TransactStatut;
+	}
+	public void setTransactStatut(String transactStatut) {
+		TransactStatut = transactStatut;
 	}
 
 	
